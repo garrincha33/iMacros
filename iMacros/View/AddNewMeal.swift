@@ -65,10 +65,8 @@ struct AddNewMeal: View {
             .frame(maxHeight: .infinity, alignment: .top)
             .padding()
             .navigationBarTitleDisplayMode(.inline)
-            //step 6 update title if we re editing
             .navigationTitle(mealModel.editingMeal != nil ? "Edit Meal" : "Add New Meal")
             .toolbar {
-                //step 5 delete button
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         if mealModel.deleteHabit(context: env.managedObjectContext) {
