@@ -21,8 +21,7 @@ class MealViewModel: ObservableObject {
     @Published var totalCalories: String = ""
     @Published var protein: String = ""
     @Published var totalProtein: String = ""
-    
-    //step 1 add new meal save to core data
+
     func addNewMeal(context: NSManagedObjectContext) -> Bool {
         let meal = Meals(context: context)
         meal.title = title
@@ -37,7 +36,7 @@ class MealViewModel: ObservableObject {
         
         return false
     }
-    //step 6 create a reset data function
+
     func resetData() {
         title = ""
         mealColor = "Card-1"
@@ -46,12 +45,13 @@ class MealViewModel: ObservableObject {
         calories = ""
         totalCalories = ""
     }
-    
-    //step 8 create a done status for when all fields are complete
+
     func doneStatus() -> Bool {
         if title == "" || protein == "" || calories == "" {
             return false
         }
         return true
     }
+    
+    
 }

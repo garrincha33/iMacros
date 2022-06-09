@@ -9,7 +9,6 @@ import SwiftUI
 
 struct AddNewMeal: View {
     @EnvironmentObject var mealModel: MealViewModel
-    //step 2 add env variable for saving
     @Environment(\.self) var env
     var body: some View {
         NavigationView {
@@ -44,13 +43,13 @@ struct AddNewMeal: View {
                     .opacity(0.5)
                     .padding(.vertical)
                 HStack {
-                    TextField("Protein", text: $mealModel.calories)
+                    TextField("Protein", text: $mealModel.protein)
                     .padding(.horizontal)
                     .padding(.vertical, 10)
                     .keyboardType(.numberPad)
                     .background(Color("TFBG").opacity(0.4), in: RoundedRectangle(cornerRadius: 6, style: .circular))
                     Spacer()
-                    TextField("Calories", text: $mealModel.protein)
+                    TextField("Calories", text: $mealModel.calories)
                     .padding(.horizontal)
                     .padding(.vertical, 10)
                     .keyboardType(.numberPad)
@@ -62,8 +61,6 @@ struct AddNewMeal: View {
                     .foregroundColor(.white)
                     .opacity(0.5)
                     .padding(.vertical)
-                
-                
             }
             .frame(maxHeight: .infinity, alignment: .top)
             .padding()
@@ -72,7 +69,6 @@ struct AddNewMeal: View {
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        //step 4 dissmis view
                         env.dismiss()
                     } label: {
                         Image(systemName: "xmark.circle")
@@ -82,13 +78,11 @@ struct AddNewMeal: View {
                 }
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
-                        //step 3 check if complete add to core data
                         if mealModel.addNewMeal(context: env.managedObjectContext) {
                             env.dismiss()
                         }
                     }
                     .tint(.white)
-                    //step 9 add done status
                     .disabled(!mealModel.doneStatus())
                     .opacity(mealModel.doneStatus() ? 1 : 0.6)
                 }
@@ -99,7 +93,6 @@ struct AddNewMeal: View {
 
 struct AddNewMeal_Previews: PreviewProvider {
     static var previews: some View {
-        //Step 5 add view model for preview
         AddNewMeal()
             .environmentObject(MealViewModel())
             .preferredColorScheme(.dark)
