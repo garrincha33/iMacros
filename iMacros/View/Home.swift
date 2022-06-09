@@ -30,7 +30,6 @@ struct Home: View {
                 .padding(.bottom, 10)
             ScrollView(meals.isEmpty ? .init() : .vertical, showsIndicators: false) {
                 VStack(spacing: 15) {
-                    //step 2 loop over and display added meals which are in coredata
                     ForEach(meals) { meal in
                         MealHabitView(meal: meal)
                     }
@@ -59,7 +58,6 @@ struct Home: View {
             AddNewMeal().environmentObject(mealModel)
         }
     }
-    //step 1 create a viewbuilder to display new meal
     @ViewBuilder
     func MealHabitView(meal: Meals) -> some View {
         VStack(spacing: 0) {
@@ -126,6 +124,13 @@ struct Home: View {
         .background {
             RoundedRectangle(cornerRadius: 12, style: .continuous)
                 .fill(Color("TFBG").opacity(0.5))
+        }
+        //step 1 editing a meal
+        .onTapGesture {
+            //step4 add meal, use restore edit function and toggle
+            mealModel.editingMeal = meal
+            mealModel.restoreEditData()
+            mealModel.addNewMeal.toggle()
         }
     }
 }
