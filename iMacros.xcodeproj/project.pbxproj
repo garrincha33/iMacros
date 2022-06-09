@@ -13,6 +13,9 @@
 		822AEDB12850C9F8007352E2 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 822AEDB02850C9F8007352E2 /* Preview Assets.xcassets */; };
 		822AEDB32850C9F8007352E2 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822AEDB22850C9F8007352E2 /* Persistence.swift */; };
 		822AEDB62850C9F8007352E2 /* iMacros.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 822AEDB42850C9F8007352E2 /* iMacros.xcdatamodeld */; };
+		828E1AA1285129F6006CC23C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E1AA0285129F6006CC23C /* Home.swift */; };
+		828E1AA3285130B6006CC23C /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E1AA2285130B6006CC23C /* MealViewModel.swift */; };
+		828E1AA52851334B006CC23C /* AddNewMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E1AA42851334B006CC23C /* AddNewMeal.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +26,9 @@
 		822AEDB02850C9F8007352E2 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		822AEDB22850C9F8007352E2 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
 		822AEDB52850C9F8007352E2 /* iMacros.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = iMacros.xcdatamodel; sourceTree = "<group>"; };
+		828E1AA0285129F6006CC23C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		828E1AA2285130B6006CC23C /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
+		828E1AA42851334B006CC23C /* AddNewMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMeal.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -55,6 +61,8 @@
 		822AEDA82850C9F6007352E2 /* iMacros */ = {
 			isa = PBXGroup;
 			children = (
+				828E1A9F285129EA006CC23C /* ViewModel */,
+				828E1A9E285129E0006CC23C /* View */,
 				822AEDA92850C9F6007352E2 /* iMacrosApp.swift */,
 				822AEDAB2850C9F6007352E2 /* ContentView.swift */,
 				822AEDAD2850C9F8007352E2 /* Assets.xcassets */,
@@ -71,6 +79,23 @@
 				822AEDB02850C9F8007352E2 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		828E1A9E285129E0006CC23C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				828E1AA0285129F6006CC23C /* Home.swift */,
+				828E1AA42851334B006CC23C /* AddNewMeal.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		828E1A9F285129EA006CC23C /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				828E1AA2285130B6006CC23C /* MealViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -145,8 +170,11 @@
 			files = (
 				822AEDB32850C9F8007352E2 /* Persistence.swift in Sources */,
 				822AEDAC2850C9F6007352E2 /* ContentView.swift in Sources */,
+				828E1AA52851334B006CC23C /* AddNewMeal.swift in Sources */,
+				828E1AA1285129F6006CC23C /* Home.swift in Sources */,
 				822AEDB62850C9F8007352E2 /* iMacros.xcdatamodeld in Sources */,
 				822AEDAA2850C9F6007352E2 /* iMacrosApp.swift in Sources */,
+				828E1AA3285130B6006CC23C /* MealViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
