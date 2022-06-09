@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Home: View {
     @FetchRequest(entity: Meals.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Meals.dateAdded, ascending: false)], predicate: nil, animation: .easeInOut) var meals: FetchedResults<Meals>
-    //step 2 create state instance of view model
+
     @StateObject var mealModel: MealViewModel = .init()
     
     var body: some View {
@@ -48,11 +48,12 @@ struct Home: View {
         }
         .frame(maxHeight: .infinity, alignment: .top)
         .padding()
-        //step 4 add a sheet to present adding a new meal
         .sheet(isPresented: $mealModel.addNewMeal) {
-            
+            //step 7 reset data
+            mealModel.resetData()
         } content : {
-            
+            //step 5 add new meal view display
+            AddNewMeal().environmentObject(mealModel)
         }
     }
 }

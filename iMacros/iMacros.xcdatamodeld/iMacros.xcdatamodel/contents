@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="20086" systemVersion="21F79" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Meals" representedClassName="Meals" syncable="YES" codeGenerationType="class">
         <attribute name="calories" optional="YES" attributeType="String"/>
+        <attribute name="color" optional="YES" attributeType="String"/>
         <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="protein" optional="YES" attributeType="String"/>
         <attribute name="title" optional="YES" attributeType="String"/>
@@ -9,6 +10,6 @@
         <attribute name="totalProtein" optional="YES" attributeType="String"/>
     </entity>
     <elements>
-        <element name="Meals" positionX="-54" positionY="108" width="128" height="119"/>
+        <element name="Meals" positionX="-54" positionY="108" width="128" height="134"/>
     </elements>
 </model>
