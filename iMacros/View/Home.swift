@@ -9,8 +9,13 @@ import SwiftUI
 
 struct Home: View {
     @FetchRequest(entity: Meals.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Meals.dateAdded, ascending: false)], predicate: nil, animation: .easeInOut) var meals: FetchedResults<Meals>
+    
+    @FetchRequest(sortDescriptors: []) var moreMeals: FetchedResults<Meals>
+    
 
     @StateObject var mealModel: MealViewModel = .init()
+    @Environment(\.managedObjectContext) var moc
+    
     
     var body: some View {
         VStack(spacing: 0) {
@@ -32,6 +37,7 @@ struct Home: View {
                 VStack(spacing: 15) {
                     ForEach(meals) { meal in
                         MealHabitView(meal: meal)
+                        
                     }
                     Button {
                         mealModel.addNewMeal.toggle()
@@ -46,8 +52,17 @@ struct Home: View {
                     }
                     .padding(.top, 15)
                     .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .center)
+                    Rectangle()
+                        .frame(height: 1)
+                        .foregroundColor(.white)
+                        .opacity(0.5)
+                        .padding(.vertical)
+                    ShowCaloriesAndProteinView()
+
                 }
                 .padding(.vertical)
+                
+                
             }
         }
         .frame(maxHeight: .infinity, alignment: .top)
@@ -61,6 +76,7 @@ struct Home: View {
     @ViewBuilder
     func MealHabitView(meal: Meals) -> some View {
         VStack(spacing: 0) {
+            
             HStack {
                 Text(meal.title ?? "")
                     .font(.callout)
@@ -125,12 +141,21 @@ struct Home: View {
             RoundedRectangle(cornerRadius: 12, style: .continuous)
                 .fill(Color("TFBG").opacity(0.5))
         }
-        //step 1 editing a meal
         .onTapGesture {
-            //step4 add meal, use restore edit function and toggle
             mealModel.editingMeal = meal
             mealModel.restoreEditData()
             mealModel.addNewMeal.toggle()
+        }
+    }
+    //MARK: -  TO DO sum of calories and protein to go here
+    @ViewBuilder
+    func ShowCaloriesAndProteinView() -> some View {
+        VStack {
+            HStack(alignment: .center) {
+                Text("Total Calories :-")
+                
+                Text("Total Protein :-")
+            }
         }
     }
 }

@@ -61,6 +61,7 @@
 		822AEDA82850C9F6007352E2 /* iMacros */ = {
 			isa = PBXGroup;
 			children = (
+				82C41CD728523501007ECFD0 /* Extensions */,
 				828E1A9F285129EA006CC23C /* ViewModel */,
 				828E1A9E285129E0006CC23C /* View */,
 				822AEDA92850C9F6007352E2 /* iMacrosApp.swift */,
@@ -96,6 +97,13 @@
 				828E1AA2285130B6006CC23C /* MealViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		82C41CD728523501007ECFD0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
