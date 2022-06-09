@@ -7,7 +7,7 @@
 
 import SwiftUI
 import CoreData
-//step 1 create a meal view model as a class
+
 class MealViewModel: ObservableObject {
     //MARK: - create  meal properties
     @Published var addNewMeal: Bool = false
@@ -21,4 +21,37 @@ class MealViewModel: ObservableObject {
     @Published var totalCalories: String = ""
     @Published var protein: String = ""
     @Published var totalProtein: String = ""
+    
+    //step 1 add new meal save to core data
+    func addNewMeal(context: NSManagedObjectContext) -> Bool {
+        let meal = Meals(context: context)
+        meal.title = title
+        meal.color = mealColor
+        meal.protein = protein
+        meal.totalProtein = totalProtein
+        meal.calories = calories
+        meal.totalCalories = totalCalories
+        if let _ = try? context.save() {
+            return true
+        }
+        
+        return false
+    }
+    //step 6 create a reset data function
+    func resetData() {
+        title = ""
+        mealColor = "Card-1"
+        protein = ""
+        totalProtein = ""
+        calories = ""
+        totalCalories = ""
+    }
+    
+    //step 8 create a done status for when all fields are complete
+    func doneStatus() -> Bool {
+        if title == "" || protein == "" || calories == "" {
+            return false
+        }
+        return true
+    }
 }

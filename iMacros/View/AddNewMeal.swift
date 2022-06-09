@@ -8,17 +8,16 @@
 import SwiftUI
 
 struct AddNewMeal: View {
-    //Step 5 create enviroment var for the view model
     @EnvironmentObject var mealModel: MealViewModel
+    //step 2 add env variable for saving
+    @Environment(\.self) var env
     var body: some View {
-        //step 6 create a navigationView with fields
         NavigationView {
             VStack(spacing: 15) {
                 TextField("Title", text: $mealModel.title)
                 .padding(.horizontal)
                 .padding(.vertical, 10)
                 .background(Color("TFBG").opacity(0.4), in: RoundedRectangle(cornerRadius: 6, style: .continuous))
-                //step 9 color picker for meal identity
                 HStack(spacing: 0) {
                     ForEach(1...7, id: \.self) { index in
                         let color = "Card-\(index)"
@@ -38,14 +37,12 @@ struct AddNewMeal: View {
                         .frame(maxWidth: .infinity)
                     }
                 }
-                //step 10 padding and divder
                 .padding()
                 Rectangle()
                     .frame(height: 1)
                     .foregroundColor(.white)
                     .opacity(0.5)
                     .padding(.vertical)
-                //step 11 add protein and calories text field
                 HStack {
                     TextField("Protein", text: $mealModel.calories)
                     .padding(.horizontal)
@@ -72,23 +69,28 @@ struct AddNewMeal: View {
             .padding()
             .navigationBarTitleDisplayMode(.inline)
             .navigationTitle("Add New Meal")
-            //step 7 add tool bar item to close
             .toolbar {
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
-                        
+                        //step 4 dissmis view
+                        env.dismiss()
                     } label: {
                         Image(systemName: "xmark.circle")
                             
                     }
                     .tint(.white)
                 }
-                //step 8 add tool bar item for done
                 ToolbarItem(placement: .navigationBarTrailing) {
                     Button("Done") {
-                        
+                        //step 3 check if complete add to core data
+                        if mealModel.addNewMeal(context: env.managedObjectContext) {
+                            env.dismiss()
+                        }
                     }
                     .tint(.white)
+                    //step 9 add done status
+                    .disabled(!mealModel.doneStatus())
+                    .opacity(mealModel.doneStatus() ? 1 : 0.6)
                 }
             }
         }
