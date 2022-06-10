@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct AddNewMeal: View {
+    
     @EnvironmentObject var mealModel: MealViewModel
     @Environment(\.self) var env
     var body: some View {
@@ -44,6 +45,7 @@ struct AddNewMeal: View {
                     .padding(.vertical)
                 HStack {
                     TextField("Protein", text: $mealModel.protein)
+                    
                     .padding(.horizontal)
                     .padding(.vertical, 10)
                     .keyboardType(.numberPad)
@@ -65,10 +67,8 @@ struct AddNewMeal: View {
             .frame(maxHeight: .infinity, alignment: .top)
             .padding()
             .navigationBarTitleDisplayMode(.inline)
-            //step 6 update title if we re editing
             .navigationTitle(mealModel.editingMeal != nil ? "Edit Meal" : "Add New Meal")
             .toolbar {
-                //step 5 delete button
                 ToolbarItem(placement: .navigationBarLeading) {
                     Button {
                         if mealModel.deleteHabit(context: env.managedObjectContext) {
@@ -104,6 +104,7 @@ struct AddNewMeal: View {
             }
         }
     }
+
 }
 
 struct AddNewMeal_Previews: PreviewProvider {

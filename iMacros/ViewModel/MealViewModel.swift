@@ -21,12 +21,16 @@ class MealViewModel: ObservableObject {
     @Published var totalCalories: String = ""
     @Published var protein: String = ""
     @Published var totalProtein: String = ""
-    
-    //step 2 editing a meal
     @Published var editingMeal: Meals?
-
+    
     func addNewMeal(context: NSManagedObjectContext) -> Bool {
-        let meal = Meals(context: context)
+        //EDITING DATA
+        var meal: Meals!
+        if let editingMeal = editingMeal {
+            meal = editingMeal
+        } else {
+            meal = Meals(context: context)
+        }
         meal.title = title
         meal.color = mealColor
         meal.protein = protein
@@ -39,7 +43,7 @@ class MealViewModel: ObservableObject {
         
         return false
     }
-
+    
     func resetData() {
         title = ""
         mealColor = "Card-1"
@@ -49,21 +53,19 @@ class MealViewModel: ObservableObject {
         totalCalories = ""
         editingMeal = nil
     }
-    
-    //step 6 delete from core data function
     func deleteHabit(context: NSManagedObjectContext) -> Bool {
         if let editingMeal = editingMeal {
             context.delete(editingMeal)
             if let _ = try? context.save() {
+                
                 return true
+            }
+            
         }
-        
-        }
-        
         return false
     }
     
-    //step 3 restoring edit data
+    
     func restoreEditData() {
         if let editingMeal = editingMeal {
             title = editingMeal.title ?? ""
@@ -74,13 +76,11 @@ class MealViewModel: ObservableObject {
             totalCalories = editingMeal.totalProtein ?? ""
         }
     }
-
+    
     func doneStatus() -> Bool {
         if title == "" || protein == "" || calories == "" {
             return false
         }
         return true
-    }
-    
-    
+    } 
 }

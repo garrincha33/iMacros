@@ -16,6 +16,8 @@
 		828E1AA1285129F6006CC23C /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E1AA0285129F6006CC23C /* Home.swift */; };
 		828E1AA3285130B6006CC23C /* MealViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E1AA2285130B6006CC23C /* MealViewModel.swift */; };
 		828E1AA52851334B006CC23C /* AddNewMeal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 828E1AA42851334B006CC23C /* AddNewMeal.swift */; };
+		83792AF4285351BA006DD4F8 /* MealHabitView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83792AF3285351BA006DD4F8 /* MealHabitView.swift */; };
+		83792AF628535715006DD4F8 /* MealsExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 83792AF528535715006DD4F8 /* MealsExt.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +31,8 @@
 		828E1AA0285129F6006CC23C /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		828E1AA2285130B6006CC23C /* MealViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealViewModel.swift; sourceTree = "<group>"; };
 		828E1AA42851334B006CC23C /* AddNewMeal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewMeal.swift; sourceTree = "<group>"; };
+		83792AF3285351BA006DD4F8 /* MealHabitView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealHabitView.swift; sourceTree = "<group>"; };
+		83792AF528535715006DD4F8 /* MealsExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealsExt.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +65,7 @@
 		822AEDA82850C9F6007352E2 /* iMacros */ = {
 			isa = PBXGroup;
 			children = (
+				82C41CD728523501007ECFD0 /* Extensions */,
 				828E1A9F285129EA006CC23C /* ViewModel */,
 				828E1A9E285129E0006CC23C /* View */,
 				822AEDA92850C9F6007352E2 /* iMacrosApp.swift */,
@@ -86,6 +91,7 @@
 			children = (
 				828E1AA0285129F6006CC23C /* Home.swift */,
 				828E1AA42851334B006CC23C /* AddNewMeal.swift */,
+				83792AF3285351BA006DD4F8 /* MealHabitView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -96,6 +102,14 @@
 				828E1AA2285130B6006CC23C /* MealViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		82C41CD728523501007ECFD0 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				83792AF528535715006DD4F8 /* MealsExt.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -168,9 +182,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				83792AF4285351BA006DD4F8 /* MealHabitView.swift in Sources */,
 				822AEDB32850C9F8007352E2 /* Persistence.swift in Sources */,
 				822AEDAC2850C9F6007352E2 /* ContentView.swift in Sources */,
 				828E1AA52851334B006CC23C /* AddNewMeal.swift in Sources */,
+				83792AF628535715006DD4F8 /* MealsExt.swift in Sources */,
 				828E1AA1285129F6006CC23C /* Home.swift in Sources */,
 				822AEDB62850C9F8007352E2 /* iMacros.xcdatamodeld in Sources */,
 				822AEDAA2850C9F6007352E2 /* iMacrosApp.swift in Sources */,
@@ -231,7 +247,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -285,7 +301,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.4;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
