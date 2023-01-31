@@ -1,4 +1,4 @@
-# iMacros
+# iTrack Macros
 Latest project on the appstore for tracking your daily macro intake
 
 This project end to end was completed and added to the appstore in just under a week. I wanted to see
